@@ -57,6 +57,16 @@ at_least_one_library_one_million_reads <- function(df_given, verbose=FALSE) {
   }
 }
 
+#' Wrapper function for validating miRNA counts matrix file
+#'
+#' This function wraps other functions to check whether data meets the required criteria
+#' of minimun count, colnames, etc
+#'
+#' @param raw_data Absolute path to raw_Data counts
+#' @param radio_separator Separator: ",", "\t", ";", etc
+#' @param verbose Boolean to show more/less information
+#' @return Boolean with either TRUE/FALSE if it meets the criteria
+#' @export
 validate_input <- function(raw_data, radio_separator = ",", verbose=FALSE) {
   
   if (verbose) { print("## Validating input file & options ")}
@@ -76,6 +86,16 @@ validate_input <- function(raw_data, radio_separator = ",", verbose=FALSE) {
   return(FALSE)
 }
 
+#' Parse miRNA counts matrix file
+#'
+#' This function parses the original raw counts data that requires to meet some criteria
+#' of minimun count, colnames, etc
+#'
+#' @param raw_data Absolute path to raw_Data counts
+#' @param sep_input Separator: ",", "\t", ";", etc
+#' @param verbose Boolean to show more/less information
+#' @return Dataframe containing samples as columns and miRNAs as rows with raw counts
+#' @export
 draculR_parse_file <- function(raw_data, sep_input=",", verbose=FALSE) {
   
   ## validate file  

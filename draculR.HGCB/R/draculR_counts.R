@@ -1,3 +1,16 @@
+#' The geometric mean of vector
+#'
+#' This function has been extracted from psych v2.4.6.26
+#' in order to reduce the amount of libraries required.
+#' It calculates the geometric mean of a given vector.
+#'
+#' @param x vector with values
+#' @param na.rm Boolean to remove NAs
+#' @return A numeric value 
+#' @export
+#' @examples
+#' geometric.mean(c(2, 3, 4, NA))
+#' geometric.mean(c(2, 3, 4, NA), na.rm=TRUE)
 geometric.mean <- function(x,na.rm=TRUE){ 
   ## extracted from psych v2.4.6.26
   if (is.null(nrow(x))) {
@@ -7,7 +20,16 @@ geometric.mean <- function(x,na.rm=TRUE){
   } 
 }
 
-
+#' Parse miRNA counts to calculate draculR haemolysis score
+#'
+#' This is the minimun working code to calculate the haemolysis score for each sample.
+#'
+#' @param counts_df Dataframe containing samples as columns and miRNAs as rows with raw counts
+#' @param drop_miRs Vector of miRNAs to remove from the original 20 miRNA used in the calculation
+#' @param verbose Boolean to show more/less information
+#' @param filterNum Minimun number of counts for each sample
+#' @return A dataframe with the classification of each sample as Clear or Caution followin the original calculation by draculR
+#' @export
 draculR_parse_counts <- function(counts_df, drop_miRs=c(''), verbose=FALSE, filterNum = 1) {
   
   library(plyr)
