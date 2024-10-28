@@ -30,55 +30,55 @@ nonzero <- function(x) sum(x != 0)
 ##################################
 
 # import our distribution difference dataframe
-plotData_distDiff_dCq <- read_csv("www/plotData_distDiff_dCq.csv")
+plotData_distDiff_dCq <- read_csv("git_repo/DraculR/www/plotData_distDiff_dCq.csv")
 
 # import the rank and distribtuion difference data for GSE153813
-rank_GSE153813 <- read_csv(file = "www/rank_GSE153813.csv")
-unlistDistributionDifference_GSE153813 <- read_csv(file = "www/unlist_distributionDifference_GSE153813.csv")
+rank_GSE153813 <- read_csv(file = "git_repo/DraculR/www/rank_GSE153813.csv")
+unlistDistributionDifference_GSE153813 <- read_csv(file = "git_repo/DraculR/www/unlist_distributionDifference_GSE153813.csv")
 GSE153813_info <- paste("The data containined in GSE153813 were obtained from",
                         " NCBI GEO. There is no associated publication" , sep = "")
 
-countsRaw_GSE153813 <- read_csv(file = "www/counts_raw_GSE153813.csv")
+countsRaw_GSE153813 <- read_csv(file = "git_repo/DraculR/www/counts_raw_GSE153813.csv")
 
 rankDist_GSE153813 <- dplyr::full_join(rank_GSE153813, unlistDistributionDifference_GSE153813, by = "samplename") %>% 
   dplyr::mutate(., project = rep("GSE153813", nrow(.)))
 
 # import the rank and distribtuion difference data for GSE118038
-rank_GSE118038 <- read_csv(file = "www/rank_GSE118038.csv")
-unlistDistributionDifference_GSE118038 <- read_csv(file = "www/unlist_distributionDifference_GSE118038.csv")
+rank_GSE118038 <- read_csv(file = "git_repo/DraculR/www/rank_GSE118038.csv")
+unlistDistributionDifference_GSE118038 <- read_csv(file = "git_repo/DraculR/www/unlist_distributionDifference_GSE118038.csv")
 GSE118038_info <- paste("The data contained in GSE118038 were obtained from",
                         " NCBI GEO and originate from the article \"A preliminary study of micro-RNAs",
                         " as minimally invasive biomarkers for the diagnosis of prostate cancer patients.\"",
                         " J Exp Clin Cancer Res 2021 Feb 23;40(1):79.", sep = "")
 
-countsRaw_GSE118038 <- read_csv(file = "www/counts_raw_GSE118038.csv")
+countsRaw_GSE118038 <- read_csv(file = "git_repo/DraculR/www/counts_raw_GSE118038.csv")
 
 rankDist_GSE118038 <- dplyr::full_join(rank_GSE118038, unlistDistributionDifference_GSE118038, by = "samplename") %>% 
   dplyr::mutate(., project = rep("GSE118038", nrow(.)))
 
 # import the rank and distribtuion difference data for GSE105052
-rank_GSE105052 <- read_csv(file = "www/rank_GSE105052.csv")
-unlistDistributionDifference_GSE105052 <- read_csv(file = "www/unlist_distributionDifference_GSE105052.csv")
+rank_GSE105052 <- read_csv(file = "git_repo/DraculR/www/rank_GSE105052.csv")
+unlistDistributionDifference_GSE105052 <- read_csv(file = "git_repo/DraculR/www/unlist_distributionDifference_GSE105052.csv")
 GSE105052_info <- paste("The data containined in GSE105052 were obtained from",
                         " NCBI GEO and originate from the article \"Small ",
                         " RNA-seq analysis of circulating miRNAs to identify phenotypic variability in",
                         " Friedreich's ataxia patients.\" Sci Data 2018 Mar 6;5:180021.", sep = "")
 
-countsRaw_GSE105052 <- read_csv(file = "www/counts_raw_GSE105052.csv")
+countsRaw_GSE105052 <- read_csv(file = "git_repo/DraculR/www/counts_raw_GSE105052.csv")
 
 rankDist_GSE105052 <- dplyr::full_join(rank_GSE105052, unlistDistributionDifference_GSE105052, by = "samplename") %>% 
   dplyr::mutate(., project = rep("GSE105052", nrow(.)))
 
 # import the rank and distribtuion difference data for GSE151341
-rank_GSE151341 <- read_csv(file = "www/rank_GSE151341.csv")
-unlistDistributionDifference_GSE151341 <- read_csv(file = "www/unlist_distributionDifference_GSE151341.csv")
+rank_GSE151341 <- read_csv(file = "git_repo/DraculR/www/rank_GSE151341.csv")
+unlistDistributionDifference_GSE151341 <- read_csv(file = "git_repo/DraculR/www/unlist_distributionDifference_GSE151341.csv")
 GSE151341_info <- paste("The data containined in c were obtained from",
                         " NCBI GEO and originate from the article \"Sequencing",
                         " identifies a distinct signature of circulating microRNAs",
                         " in early radiographic knee osteoarthritis.\"",
                         " Osteoarthritis Cartilage 2020 Nov;28(11):1471-1481.", sep = "")
 
-countsRaw_GSE151341 <- read_csv(file = "www/counts_raw_GSE151341.csv")
+countsRaw_GSE151341 <- read_csv(file = "git_repo/DraculR/www/counts_raw_GSE151341.csv")
 
 rankDist_GSE151341 <- dplyr::full_join(rank_GSE151341, unlistDistributionDifference_GSE151341, by = "samplename") %>% 
   dplyr::mutate(., project = rep("GSE151341", nrow(.)))
