@@ -18,16 +18,6 @@ Smith, Melanie D., Shalem Y. Leemaqz, Tanja Jankovic-Karasoulos, Dale McAninch, 
 
 ### How to use it
 
-You can either clone the repository and source the functions or install the developer R package
-
-### Clone and source
-
-```bash
-  $ cd folder/to/clone-into/
-  $ git clone https://github.com/HCGB-IGTP/DraculR_package/
-  $ source 
-```
-
 Please ensure the following packages are installed on your local machine:
 
 ```r
@@ -38,11 +28,35 @@ library(magrittr)
 library(edgeR)
 ```
 
-You can now open the `draculR.R` script and Run from RStudio.
+To install the draculR.HCGB package you can either clone the repository and source the functions or install the developer R package
+
+### Clone and source
+
+```bash
+  $ cd folder/to/clone-into/
+  $ git clone https://github.com/HCGB-IGTP/DraculR_package/
+  $ 
+  $ source draculR.HGCB/R/draculR_validate.R
+  $ source draculR.HGCB/R/draculR_counts.R
+```
 
 ### Install R package
 
+```r
+# Install version from GitHub:
+install.packages("devtools")
+devtools::install_github("HCGB-IGTP/DraculR_package", subdir="draculR.HCGB")
+```
+
 ## Usage example
 
+You can now open the `example_code.R` script and execute it from RStudio to get a working example.
+
+```r
+test_file <- "./dataExample/exampleCounts.csv"
+counts.test <- draculR_parse_file(raw_data = test_file, sep_input = ",", verbose = FALSE)
+draculR_results <- draculR_parse_counts(counts_df = counts.test)
+draculR_results
+```
 
 
