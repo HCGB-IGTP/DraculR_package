@@ -34,10 +34,10 @@ To install the draculR.HCGB package you can either clone the repository and sour
 
 ```bash
   $ cd folder/to/clone-into/
-  $ git clone https://github.com/HCGB-IGTP/DraculR_package/
-  $ 
-  $ source draculR.HGCB/R/draculR_validate.R
-  $ source draculR.HGCB/R/draculR_counts.R
+  $ git clone https://github.com/HCGB-IGTP/draculR.HCGB/
+  $ cd draculR.HCGB
+  $ source R/draculR_validate.R
+  $ source R/draculR_counts.R
 ```
 
 ### Install R package
@@ -45,17 +45,44 @@ To install the draculR.HCGB package you can either clone the repository and sour
 ```r
 # Install version from GitHub:
 install.packages("devtools")
-devtools::install_github("HCGB-IGTP/DraculR_package", subdir="draculR.HCGB")
+devtools::install_github("HCGB-IGTP/draculR.HCGB")
 ```
 
 ## Usage example
 
+We will be using the original example provided by draculR developers available in dataExample/ folder.
+
+The format is either csv or tsv and contains:
+- raw counts of miRNAs for each sample
+- sample names as column names
+- the first column must be named "mir_name" and contains miRNAs names, following mirBase convention.  See details [here](https://www.mirbase.org/help)
+  
+See an example here:
+
+| mir_name        | sample1           | sample2  | sample3 
+| ------------- |:-------------:| -----:| --:|
+| hsa-let-7a-5p | 34884 | 29245 | 31451 |
+| hsa-let-7e-5p | 721 | 354| 326 | 
+| hsa-let-7f-1-3p | 2 | 0 | 1 | 
+| hsa-miR-1-3p | 50| 16| 65| 
+| hsa-miR-100-5p | 6| 9| 6| 
+| hsa-miR-101-3p | 964| 2021| 2287| 
+| hsa-miR-101-5p | 1| 1| 0| 
+| hsa-miR-103a-3p | 5090| 2728| 2994| 
+| hsa-miR-106a-5p | 2 | 4 | 1 | 
+| hsa-miR-107 | 160 | 319 | 256 | 
+| hsa-miR-10a-3p | 2 | 2 | 0 | 
+
+
+
 You can now open the `example_code.R` script and execute it from RStudio to get a working example.
+
+See the code here:
 
 ```r
 test_file <- "./dataExample/exampleCounts.csv"
-counts.test <- draculR_parse_file(raw_data = test_file, sep_input = ",", verbose = FALSE)
-draculR_results <- draculR_parse_counts(counts_df = counts.test)
+counts.test <- draculR.HCGB::draculR_parse_file(raw_data = test_file, sep_input = ",", verbose = FALSE)
+draculR_results <- draculR.HCGB::draculR_parse_counts(counts_df = counts.test)
 draculR_results
 ```
 
