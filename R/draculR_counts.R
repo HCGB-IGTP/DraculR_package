@@ -106,7 +106,7 @@ draculR_parse_counts <- function(counts_df, drop_miRs=c(''), verbose=FALSE, filt
   # Create a DGEList object
   #-------------------
   print("Calculate normalisation factors and apply to the DGEList object")
-  DGEList_public <- edgeR::DGEList(counts = counts.test,
+  DGEList_public <- edgeR::DGEList(counts = counts_df,
                                    samples = rank)
   
   # calculate normalisation factors and apply to the DGEList object
