@@ -65,14 +65,21 @@ at_least_one_library_one_million_reads <- function(df_given, verbose=FALSE) {
 #' @param raw_data Absolute path to raw_Data counts
 #' @param radio_separator Separator: ",", "\t", ";", etc
 #' @param verbose Boolean to show more/less information
+#' @param file_given Boolean to identify either raw_data is a file or a dataframe
 #' @return Boolean with either TRUE/FALSE if it meets the criteria
 #' @export
-validate_input <- function(raw_data, radio_separator = ",", verbose=FALSE) {
+validate_input <- function(raw_data, radio_separator = ",", verbose=FALSE, file_given=TRUE) {
   
   if (verbose) { print("## Validating input file & options ")}
   
-  ## Find if readable
-  df.tmp <- is_csv_or_tsv(raw_data, radio_separator, verbose)
+  if (file_given) {
+    ## Find if readable
+    df.tmp <- is_csv_or_tsv(raw_data, radio_separator, verbose)
+    
+  } else {
+    df.tmp <- raw_data
+  }
+  
   if (is.null(df.tmp)) { return(FALSE) }
   
   ## Find if correct header

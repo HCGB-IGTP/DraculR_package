@@ -71,13 +71,13 @@ draculR_parse_counts <- function(counts_df, drop_miRs=c(''), verbose=FALSE, filt
   #-------------------
   # rank the samples by read counts and by unique miRs
   # this table will be joined downstream with the distribution difference table
-  rank <- base::as.data.frame(base::colSums(counts.test)) %>%
+  rank <- base::as.data.frame(base::colSums(counts_df)) %>%
     magrittr::set_colnames(., "readCounts") %>% 
     dplyr::arrange(., -(readCounts)) %>% 
     tibble::rownames_to_column("samplename") %>% 
     dplyr::mutate(., rank_readCounts = 1:nrow(.)) %>% 
     dplyr::full_join(.,
-                     as.data.frame(t(numcolwise(nonzero)(as.data.frame(counts.test)))) %>%
+                     as.data.frame(t(numcolwise(nonzero)(as.data.frame(counts_df)))) %>%
                        tibble::rownames_to_column() %>%
                        magrittr::set_colnames(., c("samplename", "unique_miRs")) %>%
                        arrange(., desc(unique_miRs)) %>%

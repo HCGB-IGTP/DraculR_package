@@ -4,7 +4,12 @@
 \alias{validate_input}
 \title{Wrapper function for validating miRNA counts matrix file}
 \usage{
-validate_input(raw_data, radio_separator = ",", verbose = FALSE)
+validate_input(
+  raw_data,
+  radio_separator = ",",
+  verbose = FALSE,
+  file_given = TRUE
+)
 }
 \arguments{
 \item{raw_data}{Absolute path to raw_Data counts}
@@ -12,6 +17,8 @@ validate_input(raw_data, radio_separator = ",", verbose = FALSE)
 \item{radio_separator}{Separator: ",", "\t", ";", etc}
 
 \item{verbose}{Boolean to show more/less information}
+
+\item{file_given}{Boolean to identify either raw_data is a file or a dataframe}
 }
 \value{
 Boolean with either TRUE/FALSE if it meets the criteria
